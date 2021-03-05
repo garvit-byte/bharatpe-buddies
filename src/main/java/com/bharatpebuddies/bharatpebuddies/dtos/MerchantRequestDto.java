@@ -9,5 +9,6 @@ public class MerchantRequestDto {
     private String message;
     private String businessCategory;
     private String businessName;
+    private String image;
 
 }
