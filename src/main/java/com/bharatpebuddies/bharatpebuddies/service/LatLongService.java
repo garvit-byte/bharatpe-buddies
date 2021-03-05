@@ -1,11 +1,9 @@
 package com.bharatpebuddies.bharatpebuddies.service;
 
 import com.bharatpebuddies.bharatpebuddies.constants.ResponseCode;
-import com.bharatpebuddies.bharatpebuddies.dao.DescriptionDao;
 import com.bharatpebuddies.bharatpebuddies.dao.MerchantInfoDao;
 import com.bharatpebuddies.bharatpebuddies.dto.LatLongMerchantDto;
 import com.bharatpebuddies.bharatpebuddies.dto.ResponseDTO;
-import com.bharatpebuddies.bharatpebuddies.entities.Description;
 import com.bharatpebuddies.bharatpebuddies.entities.MerchantInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,9 +21,6 @@ public class LatLongService {
 
     @Autowired
     MerchantInfoDao merchantInfoDao;
-
-    @Autowired
-    DescriptionDao descriptionDao;
 
     public ResponseDTO getListOfNearMerchants(String lat, String longi) {
         try {
