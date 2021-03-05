@@ -1,6 +1,9 @@
 package com.bharatpe.oltp.controller;
 
+import com.bharatpebuddies.bharatpebuddies.dao.MerchantInfoDao;
+import com.bharatpebuddies.bharatpebuddies.entities.MerchantInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +25,8 @@ public class MerchantController {
             Long id = Long.valueOf(requestBody.get("id"));
             return merchantInfoDao.getById(id);
         }catch(Exception ex){
-            return new List<MerchantInfo>();
+
         }
+        return null;
     }
 }
