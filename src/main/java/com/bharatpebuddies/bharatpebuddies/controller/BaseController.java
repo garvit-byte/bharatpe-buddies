@@ -1,19 +1,16 @@
 package com.bharatpebuddies.bharatpebuddies.controller;
 
+import com.bharatpebuddies.bharatpebuddies.dto.ResponseDTO;
+
 public class BaseController {
 
-    protected ResponseDto getSuccessResponse(Object data) {
-        ResponseDto responseDto = new ResponseDto("100", "OK", Status.ApiStatus.OK.name());
+    protected ResponseDTO getSuccessResponse(Object data) {
+        ResponseDTO responseDto = new ResponseDTO("100", "OK", Boolean.TRUE);
         responseDto.setData(data);
         return responseDto;
     }
 
-    protected ResponseDto getFailureResponse() {
-        return new ResponseDto("500", "Something went wrong!", Status.ApiStatus.FAIL.name());
-    }
-
-    protected ResponseDto getCustomResponse(Object data, String responseCode, String responseMessage, String status) {
-        ResponseDto responseDto = new ResponseDto(responseCode, responseMessage, status, data);
-        return responseDto;
+    protected ResponseDTO getFailureResponse() {
+        return new ResponseDTO("500", "Something went wrong!", Boolean.FALSE);
     }
 }
