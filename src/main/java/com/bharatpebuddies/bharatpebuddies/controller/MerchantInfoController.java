@@ -34,6 +34,7 @@ public class MerchantInfoController extends BaseController {
         merchantRequirment.setMessage(merchantRequestDto.getMessage());
         merchantRequirment.setBusinessName(merchantRequestDto.getBusinessName());
         merchantRequirment.setBusinessCategory(merchantRequestDto.getBusinessCategory());
+        merchantRequirment.setImage(merchantRequestDto.getImage());
         merchantRequirmentDao.save(merchantRequirment);
         LOGGER.info("merchant requirment table for id :{}", merchantRequirment.getId());
         return new ResponseEntity<>(getSuccessResponse(merchantRequirment), HttpStatus.OK);
