@@ -10,7 +10,7 @@ import java.util.Date;
 @Entity
 @Data
 @Table(name = "merchant_info")
-public class MerchantInfo {
+public class MerchantInfo extends BaseEntity {
     @Column(name = "mid")
     private String mid;
 
