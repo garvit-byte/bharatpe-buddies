@@ -19,7 +19,7 @@ public class LatLongMechantDto {
 
     private String bussinessName;
 
-    private String description;
+    private String benificiaryName;
 
     private String mobileNumber;
 
