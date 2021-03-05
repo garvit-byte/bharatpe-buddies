@@ -2,7 +2,7 @@ package com.bharatpebuddies.bharatpebuddies.service;
 
 import com.bharatpebuddies.bharatpebuddies.constants.ResponseCode;
 import com.bharatpebuddies.bharatpebuddies.dao.MerchantInfoDao;
-import com.bharatpebuddies.bharatpebuddies.dto.LatLongMechantDto;
+import com.bharatpebuddies.bharatpebuddies.dto.LatLongMerchantDto;
 import com.bharatpebuddies.bharatpebuddies.dto.ResponseDTO;
 import com.bharatpebuddies.bharatpebuddies.entities.MerchantInfo;
 import org.slf4j.Logger;
@@ -31,10 +31,10 @@ public class LatLongService {
             if (ObjectUtils.isEmpty(merchantInfoList)) {
                 return new ResponseDTO(ResponseCode.BAD_REQUEST, "no merchant found nearby ", false);
             }
-            List<LatLongMechantDto> listOfNearByMerchants = new ArrayList<>();
+            List<LatLongMerchantDto> listOfNearByMerchants = new ArrayList<>();
 
             for (MerchantInfo merchantInfo : merchantInfoList) {
-                LatLongMechantDto latLongMechantDto = new LatLongMechantDto();
+                LatLongMerchantDto latLongMechantDto = new LatLongMerchantDto();
                 latLongMechantDto.setBussinessName(merchantInfo.getBusinessName());
                 latLongMechantDto.setMobileNumber(merchantInfo.getMobile());
                 latLongMechantDto.setBenificiaryName(merchantInfo.getBeneficiaryName());
