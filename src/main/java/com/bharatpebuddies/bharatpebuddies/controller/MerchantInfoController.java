@@ -45,6 +45,10 @@ public class MerchantInfoController extends BaseController {
         return merchantService.getMerchant(id);
     }
 
+    @GetMapping("/fetch_post")
+    public ResponseDTO getPost(@RequestParam(value = "fetchAll") Boolean fetchAll) {
+        return merchantService.getAllPost();
+    }
 
     private boolean isvalidRequest(MerchantRequestDto merchantRequestDto) {
         if (merchantRequestDto.getMerchantId() == null)
