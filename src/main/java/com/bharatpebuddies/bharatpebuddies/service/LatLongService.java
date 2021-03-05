@@ -1,9 +1,11 @@
 package com.bharatpebuddies.bharatpebuddies.service;
 
 import com.bharatpebuddies.bharatpebuddies.constants.ResponseCode;
+import com.bharatpebuddies.bharatpebuddies.dao.DescriptionDao;
 import com.bharatpebuddies.bharatpebuddies.dao.MerchantInfoDao;
 import com.bharatpebuddies.bharatpebuddies.dto.LatLongMerchantDto;
 import com.bharatpebuddies.bharatpebuddies.dto.ResponseDTO;
+import com.bharatpebuddies.bharatpebuddies.entities.Description;
 import com.bharatpebuddies.bharatpebuddies.entities.MerchantInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +24,9 @@ public class LatLongService {
     @Autowired
     MerchantInfoDao merchantInfoDao;
 
+    @Autowired
+    DescriptionDao descriptionDao;
+
     public ResponseDTO getListOfNearMerchants(String lat, String longi) {
         try {
             if (StringUtils.isEmpty(lat) || StringUtils.isEmpty(longi)) {
@@ -39,6 +44,8 @@ public class LatLongService {
                 latLongMechantDto.setMobileNumber(merchantInfo.getMobile());
                 latLongMechantDto.setBenificiaryName(merchantInfo.getBeneficiaryName());
                 latLongMechantDto.setMerchantId(merchantInfo.getId());
+                latLongMechantDto.setCategory(merchantInfo.getBusinessCategory());
+                latLongMechantDto.setDescription(merchantInfo.getDescription());
                 listOfNearByMerchants.add(latLongMechantDto);
             }
             return new ResponseDTO(ResponseCode.SUCCESS_200, "SUCCESS", true, listOfNearByMerchants);
@@ -48,4 +55,5 @@ public class LatLongService {
         }
 
     }
+
 }

@@ -23,5 +23,7 @@ public class LatLongMerchantDto {
 
     private String mobileNumber;
 
+    private String description;
+
 
 }

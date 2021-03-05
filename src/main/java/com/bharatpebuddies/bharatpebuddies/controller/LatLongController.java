@@ -20,4 +20,6 @@ public class LatLongController {
      return latLongService.getListOfNearMerchants(lat,longi);
     }
 
+
+
 }

@@ -10,9 +10,4 @@ import javax.persistence.Table;
 @Table(name = "merchant_requirment")
 public class MerchantRequirment extends BaseEntity {
 
-    private Long merchantId;
-    private String message;
-    private String businessCategory;
-    private String businessName;
-
 }

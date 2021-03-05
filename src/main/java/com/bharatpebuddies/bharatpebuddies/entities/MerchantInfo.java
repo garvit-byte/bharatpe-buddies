@@ -17,6 +17,9 @@ public class MerchantInfo extends BaseEntity {
     @Column(name = "secret")
     private String secret;
 
+    @Column(name = "description")
+    private String description;
+
     @Column(name = "merchant_name")
     private String merchantName;
 
