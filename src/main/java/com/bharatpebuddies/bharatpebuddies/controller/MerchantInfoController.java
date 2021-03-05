@@ -1,8 +1,10 @@
 package com.bharatpebuddies.bharatpebuddies.controller;
 
 import com.bharatpebuddies.bharatpebuddies.dao.MerchantRequirmentDao;
+import com.bharatpebuddies.bharatpebuddies.dto.ResponseDTO;
 import com.bharatpebuddies.bharatpebuddies.dtos.MerchantRequestDto;
 import com.bharatpebuddies.bharatpebuddies.entities.MerchantRequirment;
+import com.bharatpebuddies.bharatpebuddies.service.MerchantService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,9 @@ public class MerchantInfoController extends BaseController {
     @Autowired
     private MerchantRequirmentDao merchantRequirmentDao;
 
+    @Autowired
+    private MerchantService merchantService;
+
     @RequestMapping(value = "/merchant/requirment", method = RequestMethod.POST)
     public ResponseEntity<?> saveMerchantFeedback(@RequestBody MerchantRequestDto merchantRequestDto) {
         LOGGER.info("Start setting up attribute in Merchant requirment table");
@@ -32,6 +37,11 @@ public class MerchantInfoController extends BaseController {
         merchantRequirmentDao.save(merchantRequirment);
         LOGGER.info("merchant requirment table for id :{}", merchantRequirment.getId());
         return new ResponseEntity<>(getSuccessResponse(merchantRequirment), HttpStatus.OK);
+    }
+
+    @GetMapping("/getMerchant")
+    public ResponseDTO getListOfMerchantNearMe(@RequestParam(name = "id") String id) {
+        return merchantService.getMerchant(id);
     }
 
 
