@@ -1,9 +1,11 @@
 package com.bharatpebuddies.bharatpebuddies.service;
 
 import com.bharatpebuddies.bharatpebuddies.constants.ResponseCode;
+import com.bharatpebuddies.bharatpebuddies.dao.DailyNewsFeedDao;
 import com.bharatpebuddies.bharatpebuddies.dao.MerchantInfoDao;
 import com.bharatpebuddies.bharatpebuddies.dao.MerchantRequirmentDao;
 import com.bharatpebuddies.bharatpebuddies.dto.ResponseDTO;
+import com.bharatpebuddies.bharatpebuddies.entities.DailyNewsFeed;
 import com.bharatpebuddies.bharatpebuddies.entities.MerchantInfo;
 import com.bharatpebuddies.bharatpebuddies.entities.MerchantRequirment;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,9 @@ public class MerchantService {
 
     @Autowired
     MerchantRequirmentDao merchantRequirmentDao;
+
+    @Autowired
+    DailyNewsFeedDao dailyNewsFeedDao;
 
     public ResponseDTO getMerchant(String id) {
         try {
@@ -48,5 +53,20 @@ public class MerchantService {
            }catch (Exception ex) {
                return new ResponseDTO(ResponseCode.SOMETHING_WENT_WRONG,"server down",false);
            }
+    }
+
+    public ResponseDTO getAllNewsFeeed() {
+        try {
+            List<DailyNewsFeed> dailyNewsFeedList =  dailyNewsFeedDao.findAllByOrderByIdDesc();
+
+            if(ObjectUtils.isEmpty(dailyNewsFeedList)) {
+                return new ResponseDTO(ResponseCode.SUCCESS_200,"No  dailye needs post to show",true);
+            }
+            return new ResponseDTO(ResponseCode.SUCCESS_200,"SUCCESS",true,dailyNewsFeedList);
+
+        }catch (Exception ex) {
+            return new ResponseDTO(ResponseCode.SOMETHING_WENT_WRONG,"server down",false);
+
+        }
     }
 }

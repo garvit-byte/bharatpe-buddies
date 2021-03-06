@@ -50,6 +50,11 @@ public class MerchantInfoController extends BaseController {
         return merchantService.getAllPost();
     }
 
+    @GetMapping("/news_feed")
+    public ResponseDTO getNewsFeed(@RequestParam(value = "fetchAll") Boolean fetchAll) {
+        return merchantService.getAllNewsFeeed();
+    }
+
     private boolean isvalidRequest(MerchantRequestDto merchantRequestDto) {
         if (merchantRequestDto.getMerchantId() == null)
             return false;
