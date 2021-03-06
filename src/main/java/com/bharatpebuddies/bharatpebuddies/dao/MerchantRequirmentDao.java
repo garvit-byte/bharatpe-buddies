@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface MerchantRequirmentDao extends JpaRepository<MerchantRequirment, Long> {
 
-    List<MerchantRequirment> findAllOrderByIdDesc();
+
+    List<MerchantRequirment> findAllByOrderByIdDesc();
 }

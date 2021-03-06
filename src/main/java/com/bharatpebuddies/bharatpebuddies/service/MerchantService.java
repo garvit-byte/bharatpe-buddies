@@ -40,7 +40,7 @@ public class MerchantService {
 
     public ResponseDTO getAllPost() {
            try {
-               List<MerchantRequirment> merchantRequirmentList = merchantRequirmentDao.findAllOrderByIdDesc();
+               List<MerchantRequirment> merchantRequirmentList = merchantRequirmentDao.findAllByOrderByIdDesc();
                if(ObjectUtils.isEmpty(merchantRequirmentList)) {
                    return new ResponseDTO(ResponseCode.SUCCESS_200,"No post to show",true);
                }
