@@ -44,28 +44,28 @@ public class MerchantService {
     }
 
     public ResponseDTO getAllPost() {
-           try {
-               List<MerchantRequirment> merchantRequirmentList = merchantRequirmentDao.findAllByOrderByIdDesc();
-               if(ObjectUtils.isEmpty(merchantRequirmentList)) {
-                   return new ResponseDTO(ResponseCode.SUCCESS_200,"No post to show",true);
-               }
-               return new ResponseDTO(ResponseCode.SUCCESS_200,"SUCCESS",true,merchantRequirmentList);
-           }catch (Exception ex) {
-               return new ResponseDTO(ResponseCode.SOMETHING_WENT_WRONG,"server down",false);
-           }
+        try {
+            List<MerchantRequirment> merchantRequirmentList = merchantRequirmentDao.findAllByOrderByIdDesc();
+            if (ObjectUtils.isEmpty(merchantRequirmentList)) {
+                return new ResponseDTO(ResponseCode.SUCCESS_200, "No post to show", true);
+            }
+            return new ResponseDTO(ResponseCode.SUCCESS_200, "SUCCESS", true, merchantRequirmentList);
+        } catch (Exception ex) {
+            return new ResponseDTO(ResponseCode.SOMETHING_WENT_WRONG, "server down", false);
+        }
     }
 
     public ResponseDTO getAllNewsFeeed() {
         try {
-            List<DailyNewsFeed> dailyNewsFeedList =  dailyNewsFeedDao.findAllByOrderByIdDesc();
+            List<DailyNewsFeed> dailyNewsFeedList = dailyNewsFeedDao.findAllByOrderByIdDesc();
 
-            if(ObjectUtils.isEmpty(dailyNewsFeedList)) {
-                return new ResponseDTO(ResponseCode.SUCCESS_200,"No  dailye needs post to show",true);
+            if (ObjectUtils.isEmpty(dailyNewsFeedList)) {
+                return new ResponseDTO(ResponseCode.SUCCESS_200, "No  dailye needs post to show", true);
             }
-            return new ResponseDTO(ResponseCode.SUCCESS_200,"SUCCESS",true,dailyNewsFeedList);
+            return new ResponseDTO(ResponseCode.SUCCESS_200, "SUCCESS", true, dailyNewsFeedList);
 
-        }catch (Exception ex) {
-            return new ResponseDTO(ResponseCode.SOMETHING_WENT_WRONG,"server down",false);
+        } catch (Exception ex) {
+            return new ResponseDTO(ResponseCode.SOMETHING_WENT_WRONG, "server down", false);
 
         }
     }

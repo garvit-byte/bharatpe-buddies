@@ -1,4 +1,4 @@
-package com.bharatpebuddies.bharatpebuddies.dtos;
+package com.bharatpebuddies.bharatpebuddies.dto;
 
 import lombok.Data;
 

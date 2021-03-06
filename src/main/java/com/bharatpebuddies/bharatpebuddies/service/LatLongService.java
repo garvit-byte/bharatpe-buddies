@@ -35,7 +35,7 @@ public class LatLongService {
 
             for (MerchantInfo merchantInfo : merchantInfoList) {
                 LatLongMerchantDto latLongMechantDto = new LatLongMerchantDto();
-                latLongMechantDto.setBussinessName(merchantInfo.getBusinessName());
+                latLongMechantDto.setBusinessName(merchantInfo.getBusinessName());
                 latLongMechantDto.setMobileNumber(merchantInfo.getMobile());
                 latLongMechantDto.setBenificiaryName(merchantInfo.getBeneficiaryName());
                 latLongMechantDto.setMerchantId(merchantInfo.getId());

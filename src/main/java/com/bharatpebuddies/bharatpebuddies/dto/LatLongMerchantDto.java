@@ -17,7 +17,7 @@ public class LatLongMerchantDto {
 
     private String category;
 
-    private String bussinessName;
+    private String businessName;
 
     private String benificiaryName;
 
