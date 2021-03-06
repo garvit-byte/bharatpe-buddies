@@ -23,28 +23,11 @@ public class MerchantInfoController extends BaseController {
     @Autowired
     private MerchantService merchantService;
 
-//    @RequestMapping(value = "/merchant/requirment", method = RequestMethod.POST)
-//    public ResponseEntity<?> saveMerchantFeedback(@RequestBody MerchantRequestDto merchantRequestDto) {
-//        LOGGER.info("Start setting up attribute in Merchant requirment table");
-//        if (!isvalidRequest(merchantRequestDto)) {
-//            return new ResponseEntity<>(getFailureResponse(), HttpStatus.OK);
-//        }
-//        MerchantRequirment merchantRequirment = new MerchantRequirment();
-//        merchantRequirment.setMerchantId(merchantRequestDto.getMerchantId());
-//        merchantRequirment.setMessage(merchantRequestDto.getMessage());
-//        merchantRequirment.setBusinessName(merchantRequestDto.getBusinessName());
-//        merchantRequirment.setBusinessCategory(merchantRequestDto.getBusinessCategory());
-//        merchantRequirment.setImage(merchantRequestDto.getImage());
-//        merchantRequirmentDao.save(merchantRequirment);
-//        LOGGER.info("merchant requirement table for id :{}", merchantRequirment.getId());
-//        return new ResponseEntity<>(getSuccessResponse(merchantRequirment), HttpStatus.OK);
-//    }
-
-    @PostMapping("/merchant/requirment")
-    public ResponseEntity saveMerchant(@RequestBody MerchantRequestDto merchantRequestDto){
+    @RequestMapping(value = "/merchant/requirment", method = RequestMethod.POST)
+    public ResponseEntity<?> saveMerchantFeedback(@RequestBody MerchantRequestDto merchantRequestDto) {
         LOGGER.info("Start setting up attribute in Merchant requirment table");
         if (!isvalidRequest(merchantRequestDto)) {
-            return new ResponseEntity(getFailureResponse(), HttpStatus.OK);
+            return new ResponseEntity<>(getFailureResponse(), HttpStatus.OK);
         }
         MerchantRequirment merchantRequirment = new MerchantRequirment();
         merchantRequirment.setMerchantId(merchantRequestDto.getMerchantId());
@@ -56,8 +39,6 @@ public class MerchantInfoController extends BaseController {
         LOGGER.info("merchant requirement table for id :{}", merchantRequirment.getId());
         return new ResponseEntity<>(getSuccessResponse(merchantRequirment), HttpStatus.OK);
     }
-
-
 
     @GetMapping("/getMerchant")
     public ResponseDTO getListOfMerchantNearMe(@RequestParam(name = "id") String id) {
